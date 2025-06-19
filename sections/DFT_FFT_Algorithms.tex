@@ -250,13 +250,15 @@ The proof that $\mathbf{X} = \tilde{\mathbf{X}}$ is that
 		\begin{bmatrix}
 			\mathbf{x}_0 \\ \mathbf{x}_1 \\ \vdots \\ \mathbf{x}_n
 		\end{bmatrix}
-		= \tilde{A} \mathbf{x}_0 + \tilde{A} \mathbf{x}_0 + \ldots \\
+		= \tilde{A} \mathbf{x}_0 + \tilde{A} \mathbf{x}_1 + \ldots \\
 	&= \tilde{A}(\mathbf{x}_0 + \mathbf{x}_1 + \ldots + \mathbf{x}_n) = \tilde{A}\tilde{\mathbf{x}} = \tilde{\mathbf{X}}
 \end{align*}
 
 Similarly, a Matrix $A$ can be created to transform e.g. a length-8 time signal
 into a 4-point DFT:
+\begingroup
 \begin{equation*}
+	\setlength\arraycolsep{4pt}
 	A = \left[\tilde{A},\tilde{A}\right] = \left[ \begin{array}{cccc|cccc}
 		1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
 		1& W_4& W_4^2& W_4^3 & 1& W_4& W_4^2& W_4^3 \\
@@ -264,6 +266,7 @@ into a 4-point DFT:
 		1& W_4^3& W_4^6& W_4^9 & 1& W_4^3& W_4^6& W_4^9 \\
 	\end{array} \right]
 \end{equation*}
+\endgroup
 
 \subsection{Inverse DFT\buchSeite{496-499}}
 The problem of inverting an $N$-point DFT is that all signals $\mathbf{x}$
@@ -330,7 +333,7 @@ of the DFT and the fact that the twiddling factor $W_N^{N/2} = -1$:
 \begin{align*}
 	\begin{array}{rl}
 		X(k) = & G(k) + W_N^k H(k) \\
-		X(k+N/2) = & G(k) - W_n^k H(k)
+		X(k+N/2) = & G(k) - W_N^k H(k)
 	\end{array} \\
 	\text{with}\qquad k=0,1,\ldots,\frac{N}{2}-1
 \end{align*}
